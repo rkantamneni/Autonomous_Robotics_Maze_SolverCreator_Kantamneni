@@ -204,10 +204,10 @@ function solveHighlight(i, j) {
 
 
 function solver(x,y,expr) { 
-  frameRate(1);
+
   solveHighlight(x, y);
   
-  if (current != grid[99]) {
+  if (current != grid[(rows*cols)-1]) {
     console.log(expr);
     switch (expr) {
       
@@ -238,7 +238,7 @@ function solver(x,y,expr) {
         
  
         
-      case "North"://top "right" "bottom" left
+      case "North":
         if (grid[index(x,y)].walls[3]==false) {
           current = grid[index(x-1,y)];
           solver(x-1, y, "West");//left
@@ -263,7 +263,7 @@ function solver(x,y,expr) {
         
         
         
-      case "South"://top "right" "bottom" left
+      case "South":
         if (grid[index(x,y)].walls[1]==false) {
           current = grid[index(x+1,y)];
           solver(x+1, y, "East");//left
@@ -287,7 +287,7 @@ function solver(x,y,expr) {
         
         
         
-      case "West"://top "right" "bottom" left
+      case "West":
         if (grid[index(x,y)].walls[2]==false) {
           current = grid[index(x,y+1)];
           solver(x, y+1 , "South");//left
@@ -312,13 +312,9 @@ function solver(x,y,expr) {
   } 
   else {
     console.log("Maze Solved");
-    
+    fatalERROR(100);
   }
    
 }
 
 
-//var top = grid[index(i, j-1)];
-//    var right = grid[index(i+1, j)];
-//    var bottom = grid[index(i, j+1)];
-//    var left = grid[index(i-1, j)];
