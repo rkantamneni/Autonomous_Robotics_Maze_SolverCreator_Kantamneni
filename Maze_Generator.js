@@ -312,7 +312,7 @@ function solver(x,y,expr) {
   } 
   else {
     console.log("Maze Solved");
-    fatalERROR(100);
+    fatalERROR(100);//Purposeful Crash
   }
    
 }
